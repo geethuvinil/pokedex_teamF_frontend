@@ -41,7 +41,7 @@ class _OtpPageState extends State<OtpPage> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: Text(
-                    'Enter the code sent to your mobile number',
+                    'Enter the OTP sent to your mobile number',
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black38),
                     textAlign: TextAlign.center,
                   ),
