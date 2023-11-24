@@ -10,10 +10,7 @@ class Otp2 extends StatefulWidget {
 }
 
 class _Otp2State extends State<Otp2> {
-  // TextEditingController txt1 = TextEditingController();
-  // TextEditingController txt2 = TextEditingController();
-  // TextEditingController txt3 = TextEditingController();
-  // TextEditingController txt4 = TextEditingController();
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
