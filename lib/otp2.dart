@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:otp_text_field/otp_text_field.dart';
+import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
+import 'package:pokedex/cnfrmpass.dart';
+
 import 'package:pokedex/emailreset.dart';
 
 class Otp2 extends StatefulWidget {
@@ -84,6 +87,9 @@ class _Otp2State extends State<Otp2> {
                     style: TextStyle(fontSize: 17),
                     textFieldAlignment: MainAxisAlignment.spaceAround,
                     fieldStyle: FieldStyle.box,
+                    otpFieldStyle: OtpFieldStyle(
+                      focusBorderColor: Colors.black,
+                    ),
                     
                    )
                   ],
@@ -94,7 +100,7 @@ class _Otp2State extends State<Otp2> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Email_Reset(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ConfirmPassword(),));
                 },
                 style: ButtonStyle(
                   foregroundColor:
