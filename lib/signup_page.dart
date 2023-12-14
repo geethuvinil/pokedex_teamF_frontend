@@ -1,8 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:pokedex/login_page.dart';
 
+import 'package:flutter/material.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:pokedex/login_page.dart';
+import 'package:quickalert/quickalert.dart';
 
 class SignupPage extends StatefulWidget {
+ 
+
+ void showAlert(BuildContext context) {
+    QuickAlert.show(
+      context: context,
+      title: 'Success',
+      text: 'You have successfully signed up!',
+      type: QuickAlertType.success,
+    );
+  }
+
   const SignupPage({Key? key}) : super(key: key);
 
   @override
@@ -33,7 +46,7 @@ class _SignupPageState extends State<SignupPage> {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children:[
+            children: [
               SizedBox(
                 height: 40,
               ),
@@ -41,7 +54,7 @@ class _SignupPageState extends State<SignupPage> {
                 padding: EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children:[
+                  children: [
                     Text(
                       'Hello There',
                       style: TextStyle(
@@ -75,7 +88,7 @@ class _SignupPageState extends State<SignupPage> {
                 child: Padding(
                   padding: EdgeInsets.all(30),
                   child: Column(
-                    children:[
+                    children: [
                       SizedBox(
                         height: 20,
                       ),
@@ -88,6 +101,9 @@ class _SignupPageState extends State<SignupPage> {
                               decoration: InputDecoration(
                                 labelText: 'Name',
                                 border: OutlineInputBorder(),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
+                                ),
                                 prefixIcon: Icon(
                                   Icons.person,
                                   color: Colors.black,
@@ -102,6 +118,9 @@ class _SignupPageState extends State<SignupPage> {
                               decoration: InputDecoration(
                                 labelText: 'Email',
                                 border: OutlineInputBorder(),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
+                                ),
                                 prefixIcon: Icon(
                                   Icons.email,
                                   color: Colors.black,
@@ -111,11 +130,14 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(bottom: 17),
-                            child: TextFormField(
+                            child: IntlPhoneField(
                               keyboardType: TextInputType.phone,
                               decoration: InputDecoration(
                                 labelText: 'Phone Number',
                                 border: OutlineInputBorder(),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
+                                ),
                                 prefixIcon: Icon(
                                   Icons.phone,
                                   color: Colors.black,
@@ -130,6 +152,9 @@ class _SignupPageState extends State<SignupPage> {
                               decoration: InputDecoration(
                                 labelText: 'Password',
                                 border: OutlineInputBorder(),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
+                                ),
                                 prefixIcon: Icon(
                                   Icons.lock,
                                   color: Colors.black,
@@ -139,64 +164,71 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ],
                       ),
-                      
-                      
-                     Padding(
-  padding: const EdgeInsets.only(top: 15),
-  child: Align(
-    alignment: Alignment.center,
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(), // Adjust the value to control the curve
-      ),
-      child:  ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Login_page(),));
-                },
-                style: ButtonStyle(
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.black),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.orangeAccent),
-                  shape: MaterialStateProperty.all<OutlinedBorder>(
-                    ContinuousRectangleBorder(
-                      borderRadius: BorderRadius.circular(24.0),
-                      side: BorderSide(
-                          color: Colors
-                              .black), // You can set the border color as needed
-                    ),
-                  ),
-                  overlayColor:
-                      MaterialStateProperty.resolveWith<Color>((states) {
-                    if (states.contains(MaterialState.pressed)) {
-                      return Colors.orangeAccent.withOpacity(0.5);
-                    }
-                    return Colors.transparent;
-                  }),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(14.0),
-                  child: Text(
-                    'SignUp',
-                    style: TextStyle(fontSize: 16),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius
+                                  .only(), // Adjust the value to control the curve
+                            ),
+                            child: ElevatedButton(
+                              onPressed: () {
+                              widget.showAlert(context);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Login_page(),
+                                    ));
+                              },
+                              style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orangeAccent),
+                                shape:
+                                    MaterialStateProperty.all<OutlinedBorder>(
+                                  ContinuousRectangleBorder(
+                                    borderRadius: BorderRadius.circular(24.0),
+                                    side: BorderSide(
+                                        color: Colors
+                                            .black), // You can set the border color as needed
+                                  ),
+                                ),
+                                overlayColor:
+                                    MaterialStateProperty.resolveWith<Color>(
+                                        (states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return Colors.orangeAccent.withOpacity(0.5);
+                                  }
+                                  return Colors.transparent;
+                                }),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(14.0),
+                                child: Text(
+                                  'SignUp',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Image.asset(
+                        "assets/images/poke.png",
+                        height: 200,
+                        width: double.infinity,
+                        fit: BoxFit.contain,
+                      ),
+                    ],
                   ),
                 ),
               ),
-    ),
-  ),
-),
-
-SizedBox(height: 10),
-Image.asset("assets/images/poke.png",
-height: 200,
-width: double.infinity,
-fit: BoxFit.contain,
-), ],
-                    ),
-                ),
-                
-              ),
-            
             ],
           ),
         ),
@@ -204,3 +236,4 @@ fit: BoxFit.contain,
     );
   }
 }
+
