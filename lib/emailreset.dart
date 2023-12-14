@@ -57,6 +57,9 @@ class _Email_ResetState extends State<Email_Reset> {
                             decoration: InputDecoration(
                               labelText: 'Email',
                               border: OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
                               prefixIcon: Icon(
                                 Icons.person,
                                 color: Colors.black,
@@ -117,4 +120,3 @@ class _Email_ResetState extends State<Email_Reset> {
     );
   }
 }
-
