@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/emailreset.dart';
 import 'package:pokedex/otp2.dart';
-import 'package:pokedex/signup_page.dart';
+import 'package:pokedex/singup_page.dart';
+import 'package:quickalert/quickalert.dart';
+
 
 class Login_page extends StatefulWidget {
+   void showAlert(BuildContext context) {
+    QuickAlert.show(
+      context: context,
+      title: 'Welcome back!',
+      text: 'You have logged into your account',
+      type: QuickAlertType.success,
+    );
+  }
   const Login_page({Key? key}) : super(key: key);
 
   @override
@@ -82,6 +92,9 @@ class _Login_pageState extends State<Login_page> {
                           decoration: InputDecoration(
                             labelText: 'Email',
                             border: OutlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
                             prefixIcon: Icon(
                               Icons.email,
                               color: Colors.black,
@@ -96,6 +109,9 @@ class _Login_pageState extends State<Login_page> {
                           decoration: InputDecoration(
                             labelText: 'Password',
                             border: OutlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
                             prefixIcon: Icon(
                               Icons.lock,
                               color: Colors.black,
@@ -122,6 +138,7 @@ class _Login_pageState extends State<Login_page> {
                             ),
                             child:  ElevatedButton(
                 onPressed: () {
+                  widget.showAlert(context);
                   Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage(),));
                 },
                 style: ButtonStyle(
@@ -186,3 +203,4 @@ class _Login_pageState extends State<Login_page> {
     );
   }
 }
+
