@@ -28,6 +28,9 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
                   decoration: InputDecoration(
                     labelText: 'New Password',
                     border: OutlineInputBorder(),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
                     prefixIcon: Icon(
                       Icons.password,
                       color: Colors.black,
@@ -43,6 +46,9 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
                   decoration: InputDecoration(
                     labelText: 'Confirm New Password',
                     border: OutlineInputBorder(),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
                     prefixIcon: Icon(
                       Icons.confirmation_number,
                       color: Colors.black,
@@ -70,8 +76,8 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
                       ContinuousRectangleBorder(
                         borderRadius: BorderRadius.circular(24.0),
                         side: BorderSide(
-                            color: Colors
-                                .black), // You can set the border color as needed
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                     overlayColor:
